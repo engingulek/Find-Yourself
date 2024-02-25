@@ -33,7 +33,7 @@ const DiscoverView({ Key? key }) : super(key: key);
           ],)),
           const Expanded(
             flex: 7,
-            child: PopularGridList()
+            child: CommonGridList()
             
             
             )
