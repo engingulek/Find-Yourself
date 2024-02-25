@@ -1,4 +1,4 @@
-import 'package:find_yourself/view/onboarding_view.dart';
+import 'package:find_yourself/view/onboardingView/onboarding_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness:  Brightness.dark
       ),
-      home: const  OnboardingView()
+      home: const  background()
     );
   }
 }
