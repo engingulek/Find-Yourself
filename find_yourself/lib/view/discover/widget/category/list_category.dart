@@ -1,4 +1,4 @@
- import 'package:find_yourself/view/discover/widget/category_view.dart';
+ import 'package:find_yourself/view/discover/widget/category/category_view.dart';
 import 'package:flutter/material.dart';
 
 class ListCategory extends StatelessWidget {
@@ -11,7 +11,7 @@ final defaultCategoryImage = "https://images.unsplash.com/photo-1542291026-7eec2
           itemCount:10,
           itemBuilder: (context,index){
           return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(5.0),
             child: CategoryView(
               category: "$index", 
               defaultCategoryImage: defaultCategoryImage)
