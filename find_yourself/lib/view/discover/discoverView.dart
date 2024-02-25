@@ -22,12 +22,12 @@ const DiscoverView({ Key? key }) : super(key: key);
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-              const Text("Popular",style: TextStyle(
+              const Text(AppConstants.popular,style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: Colors.white)),
               TextButton(onPressed: (){},
-               child: const Text("Show All",style: TextStyle(
+               child: const Text(AppConstants.showAll,style: TextStyle(
                 fontSize: 16,
                 color: Colors.red),))
           ],)),

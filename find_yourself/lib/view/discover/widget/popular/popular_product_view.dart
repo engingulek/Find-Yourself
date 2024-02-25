@@ -11,36 +11,48 @@ final String defaultDressImage;
           children: [
            Expanded(
             flex: 8,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Container(
-                
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0), 
-                  image: DecorationImage(
-                    image: NetworkImage(defaultDressImage),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            )),
-            const Padding(
+            child: productImage()),
+             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
               child: Expanded(
                 flex: 1,
-                child: Text("White Dres",
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                child: productName(),
               ),
             ),
-            const Expanded(
+             Expanded(
               flex: 2,
-              child: Text("\$100.00",
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 16,fontWeight: FontWeight.bold),),
+              child: productPrice(),
             )
           ],
         );
+  }
+
+  Text productPrice() {
+    return const Text("\$100.00",
+            style: TextStyle(
+              color: Colors.red,
+              fontSize: 16,fontWeight: FontWeight.bold),);
+  }
+
+  Text productName() {
+    return const Text("White Dress",
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),);
+  }
+
+  Padding productImage() {
+    return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Container(
+              
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0), 
+                image: DecorationImage(
+                  image: NetworkImage(defaultDressImage),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          );
   }
 }

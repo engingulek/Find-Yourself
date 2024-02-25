@@ -1,5 +1,6 @@
 
 import 'package:find_yourself/view/discover/widget/popular/popular_product_view.dart';
+import 'package:find_yourself/view/productDetail/product_detail.dart';
 import 'package:flutter/material.dart';
 
 class PopularGridList extends StatelessWidget {
@@ -15,7 +16,11 @@ final defaultDressImage = "https://images.unsplash.com/photo-1574655563118-3e3ea
             itemCount: 10,
             itemBuilder: (context,indeks){
               
-              return   PopularProductView(defaultDressImage: defaultDressImage);
+              return   GestureDetector(
+                onTap: () {
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetail()));
+                },
+                child: PopularProductView(defaultDressImage: defaultDressImage));
                 
              
             },
