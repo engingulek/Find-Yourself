@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PopularProductView extends StatelessWidget {
-const PopularProductView({ Key? key, required this.defaultDressImage }) : super(key: key);
+class CommonProductView extends StatelessWidget {
+const CommonProductView({ Key? key, required this.defaultDressImage }) : super(key: key);
 final String defaultDressImage;
 
   @override
@@ -43,7 +43,10 @@ final String defaultDressImage;
   Padding productImage() {
     return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Container(
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+              Container(
               
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0), 
@@ -53,6 +56,14 @@ final String defaultDressImage;
                 ),
               ),
             ),
+
+            IconButton(onPressed: (){
+
+            }, icon: Icon(Icons.favorite_border),
+            color: Colors.red,
+            )
+
+            ]),
           );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:find_yourself/core/constants/app_constants.dart';
-import 'package:find_yourself/view/discover/widget/popular/popular_gridList.dart';
+import 'package:find_yourself/core/common/common_gridList.dart';
 import 'package:find_yourself/view/productsView/mixin/mixin_products_view.dart';
 import 'package:find_yourself/view/productsView/widget/products_common_button.dart';
 import 'package:find_yourself/view/productsView/widget/selected_category_info.dart';

@@ -1,5 +1,5 @@
 
-import 'package:find_yourself/view/discover/widget/popular/popular_product_view.dart';
+import 'package:find_yourself/core/common/common_product_view.dart';
 import 'package:find_yourself/view/productDetail/product_detail.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ final defaultDressImage = "https://images.unsplash.com/photo-1574655563118-3e3ea
                 onTap: () {
                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetail()));
                 },
-                child: PopularProductView(defaultDressImage: defaultDressImage));
+                child: CommonProductView(defaultDressImage: defaultDressImage));
                 
              
             },

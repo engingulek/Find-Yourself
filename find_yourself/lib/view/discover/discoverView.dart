@@ -1,6 +1,6 @@
 import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:find_yourself/view/discover/widget/category/list_category.dart';
-import 'package:find_yourself/view/discover/widget/popular/popular_gridList.dart';
+import 'package:find_yourself/core/common/common_gridList.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverView extends StatelessWidget {
