@@ -8,7 +8,12 @@ class AmountView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return  Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -42,7 +47,9 @@ class AmountView extends StatelessWidget {
           totalText(130)
         ],),
       ],),
-    );
+    )
+        );
+      
   }
 
   Text totalText(double amount) {
