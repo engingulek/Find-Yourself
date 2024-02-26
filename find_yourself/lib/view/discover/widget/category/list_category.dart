@@ -16,7 +16,7 @@ final defaultCategoryImage = "https://images.unsplash.com/photo-1542291026-7eec2
             child: GestureDetector(
               onTap: () {
                 Navigator.push(context,
-        MaterialPageRoute(builder: (context)=> const ProductsView())
+        MaterialPageRoute(builder: (context)=>  ProductsView())
         );
               },
               child: CategoryView(
