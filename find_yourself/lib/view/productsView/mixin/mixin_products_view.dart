@@ -3,6 +3,7 @@
 import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:find_yourself/view/productsView/mobx/filterCheckbox/filter_checkbox_mobx.dart';
 
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -23,8 +24,8 @@ mixin MixinProductsView {
             mainAxisSize: MainAxisSize.min,
             children: [
               const _showBottomSheetTitle(title: AppConstants.sort,),
+             ShowBottomSheetListView(listType: sortTypeList,)
              
-              _showBottomSheetListView(listType: sortTypeList,),
             ],
           ),
         );
@@ -58,27 +59,41 @@ mixin MixinProductsView {
 }
 
 
-class _showBottomSheetListView extends StatelessWidget {
-  const _showBottomSheetListView({
-    required this.listType,
-  });
+class ShowBottomSheetListView extends StatefulWidget {
+  const ShowBottomSheetListView({ Key? key, required this.listType }) : super(key: key);
   final List<String> listType;
+  @override
+  _ShowBottomSheetListViewState createState() => _ShowBottomSheetListViewState();
+}
+
+class _ShowBottomSheetListViewState extends State<ShowBottomSheetListView> {
+  String selectedSort = "";
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: listType.length,
+      itemCount: widget.listType.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(listType[index]),
+          title: Text(widget.listType[index],
+            style: TextStyle(color: 
+            selectedSort == widget.listType[index] ? Colors.red : Colors.white
+             ),
+            ),
           onTap: () {
-           
+            setState(() {
+              selectedSort = widget.listType[index];
+            });
           },
         );
       },
     );
   }
 }
+
+
+
+
 
 class _checkBoxListView extends StatelessWidget {
    _checkBoxListView({
