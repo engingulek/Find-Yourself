@@ -1,4 +1,5 @@
 import 'package:find_yourself/core/constants/app_constants.dart';
+import 'package:find_yourself/view/cartView/cart_view.dart';
 import 'package:find_yourself/view/discover/widget/category/list_category.dart';
 import 'package:find_yourself/core/common/common_gridList.dart';
 import 'package:find_yourself/view/favoritesView/favorites_view.dart';
@@ -18,6 +19,26 @@ const DiscoverView({ Key? key }) : super(key: key);
         MaterialPageRoute(builder: (context)=>  FavoritesView()));
             },
           ),
+          actions: [
+            Stack(
+              alignment: Alignment.topRight,
+              children: [
+             IconButton(onPressed: (){
+                   Navigator.push(context,
+        MaterialPageRoute(builder: (context)=>  CartView()));
+            }, icon: const Icon(Icons.shopping_basket),
+            color: Colors.red,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(right: 10),
+              child: Text("1",style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold),),
+            )
+            ]
+          
+          )],
+      
       
       ),
       body:   Padding(
