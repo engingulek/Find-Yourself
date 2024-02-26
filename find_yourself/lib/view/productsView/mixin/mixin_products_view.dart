@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'package:find_yourself/core/constants/app_constants.dart';
-import 'package:find_yourself/view/productsView/mobx/filterCheckbox/filter_checkbox_mobx.dart';
+
 
 
 import 'package:flutter/material.dart';
@@ -24,8 +24,8 @@ mixin MixinProductsView {
             mainAxisSize: MainAxisSize.min,
             children: [
               const _showBottomSheetTitle(title: AppConstants.sort,),
-             ShowBottomSheetListView(listType: sortTypeList,)
              
+              _showBottomSheetListView(listType: sortTypeList,),
             ],
           ),
         );
@@ -59,76 +59,66 @@ mixin MixinProductsView {
 }
 
 
-class ShowBottomSheetListView extends StatefulWidget {
-  const ShowBottomSheetListView({ Key? key, required this.listType }) : super(key: key);
+class _showBottomSheetListView extends StatelessWidget {
+   _showBottomSheetListView({
+    required this.listType,
+  });
   final List<String> listType;
-  @override
-  _ShowBottomSheetListViewState createState() => _ShowBottomSheetListViewState();
-}
 
-class _ShowBottomSheetListViewState extends State<ShowBottomSheetListView> {
-  String selectedSort = "";
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: widget.listType.length,
+      itemCount: listType.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(widget.listType[index],
+          title: Observer(builder: (_){
+            return  Text(listType[index],
             style: TextStyle(color: 
-            selectedSort == widget.listType[index] ? Colors.red : Colors.white
+             Colors.white
              ),
-            ),
+            );
+          }),
           onTap: () {
-            setState(() {
-              selectedSort = widget.listType[index];
-            });
+           
           },
         );
       },
     );
   }
 }
-
-
-
-
 
 class _checkBoxListView extends StatelessWidget {
    _checkBoxListView({
     required this.listType,
   });
-  final FilterCheckbox filterCheckbox = FilterCheckbox();
+  
 
   final List<String> listType;
   
   @override
     Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
+    return  ListView.builder(
+        shrinkWrap: true,
       itemCount: listType.length,
-      itemBuilder: (context, index) {
-        return Observer(
-          builder: (_) {
-            return CheckboxListTile(
-              title: Text(listType[index]),
-              value: filterCheckbox.checkboxList.contains(listType[index]),
-              onChanged: (bool? value) {
-                if (value != null && value) {
-                  filterCheckbox.addTypeToCheckboxList(listType[index]);
+      itemBuilder: (context,index){
+        return CheckboxListTile(
+          title: Text(listType[index]),
+          value: false, 
+          onChanged: (bool? value){
+ if (value != null && value) {
+                  
                 } else {
-                  filterCheckbox.removeTypeToCheckboxList(listType[index]);
+                  
                 }
-              },
-            );
-          },
-        );
-      },
-    );
+          });
+    });
+      
+      }
+    
   }
 
-}
+
 
 class _showBottomSheetTitle extends StatelessWidget {
   const _showBottomSheetTitle({
