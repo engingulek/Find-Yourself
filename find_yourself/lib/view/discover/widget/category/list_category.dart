@@ -1,4 +1,5 @@
  import 'package:find_yourself/view/discover/widget/category/category_view.dart';
+import 'package:find_yourself/view/productsView/products_view.dart';
 import 'package:flutter/material.dart';
 
 class ListCategory extends StatelessWidget {
@@ -12,9 +13,16 @@ final defaultCategoryImage = "https://images.unsplash.com/photo-1542291026-7eec2
           itemBuilder: (context,index){
           return Padding(
             padding: const EdgeInsets.all(5.0),
-            child: CategoryView(
-              category: "$index", 
-              defaultCategoryImage: defaultCategoryImage)
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+        MaterialPageRoute(builder: (context)=>  ProductsView())
+        );
+              },
+              child: CategoryView(
+                category: "$index", 
+                defaultCategoryImage: defaultCategoryImage),
+            )
           );
         });
   }
