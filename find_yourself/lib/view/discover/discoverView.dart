@@ -1,6 +1,7 @@
 import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:find_yourself/view/discover/widget/category/list_category.dart';
 import 'package:find_yourself/core/common/common_gridList.dart';
+import 'package:find_yourself/view/favoritesView/favorites_view.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverView extends StatelessWidget {
@@ -8,7 +9,17 @@ const DiscoverView({ Key? key }) : super(key: key);
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text(AppConstants.discoverNavTitle),),
+      appBar: AppBar(title: const Text(AppConstants.discoverNavTitle),
+      leading: IconButton(
+            icon: Icon(Icons.favorite),
+            color: Colors.red, // Sol tarafa eklenen icon
+            onPressed: () {
+              Navigator.push(context,
+        MaterialPageRoute(builder: (context)=>  FavoritesView()));
+            },
+          ),
+      
+      ),
       body:   Padding(
         padding: EdgeInsets.symmetric(horizontal:15),
         child: Column(
