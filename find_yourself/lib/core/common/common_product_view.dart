@@ -12,15 +12,12 @@ final String defaultDressImage;
            Expanded(
             flex: 8,
             child: productImage()),
-             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              child: Expanded(
-                flex: 1,
-                child: productName(),
-              ),
-            ),
              Expanded(
-              flex: 2,
+               flex: 1,
+               child: productName(),
+             ),
+             Expanded(
+              flex: 1,
               child: productPrice(),
             )
           ],

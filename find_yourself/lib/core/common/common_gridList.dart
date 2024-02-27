@@ -20,9 +20,9 @@ final defaultDressImage = "https://images.unsplash.com/photo-1574655563118-3e3ea
                 onTap: () {
                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetail()));
                 },
-                child: CommonProductView(defaultDressImage: defaultDressImage));
-                
-             
+                child: CommonProductView(
+                  defaultDressImage: defaultDressImage)
+                  );
             },
           );
   }

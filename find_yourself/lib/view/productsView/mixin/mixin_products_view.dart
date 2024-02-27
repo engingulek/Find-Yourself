@@ -1,11 +1,5 @@
-// ignore_for_file: camel_case_types
-
 import 'package:find_yourself/core/constants/app_constants.dart';
-
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
 mixin MixinProductsView {
   final List<String> sortTypeList = [
@@ -60,7 +54,7 @@ mixin MixinProductsView {
 
 
 class _showBottomSheetListView extends StatelessWidget {
-   _showBottomSheetListView({
+  const _showBottomSheetListView({
     required this.listType,
   });
   final List<String> listType;
@@ -72,13 +66,11 @@ class _showBottomSheetListView extends StatelessWidget {
       itemCount: listType.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Observer(builder: (_){
-            return  Text(listType[index],
-            style: TextStyle(color: 
+          title: Text(listType[index],
+            style: const TextStyle(color: 
              Colors.white
              ),
-            );
-          }),
+            ),
           onTap: () {
            
           },
