@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class onboarding_title extends StatelessWidget {
-  const onboarding_title({
+class OnboardingTitle extends StatelessWidget {
+  const OnboardingTitle({
     super.key, required this.onboardingTitle,
   });
   final String onboardingTitle;

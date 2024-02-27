@@ -56,7 +56,7 @@ final String defaultDressImage;
 
             IconButton(onPressed: (){
 
-            }, icon: Icon(Icons.favorite_border),
+            }, icon: const Icon(Icons.favorite_border),
             color: Colors.red,
             )
 

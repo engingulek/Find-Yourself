@@ -1,8 +1,8 @@
-import 'package:find_yourself/view/discover/discoverView.dart';
+import 'package:find_yourself/view/discover/discover_view.dart';
 import 'package:flutter/material.dart';
 
-class find_yourself_button extends StatelessWidget {
-  const find_yourself_button({
+class FindYourSelfButton extends StatelessWidget {
+  const FindYourSelfButton({
     super.key, required this.title,
   });
   final String title; 
@@ -17,7 +17,7 @@ class find_yourself_button extends StatelessWidget {
         );
       }, 
       child:   Padding(
-        padding: EdgeInsets.symmetric(vertical: 20,horizontal: 50),
+        padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 50),
         child: Text(
           title,
           style: const TextStyle(

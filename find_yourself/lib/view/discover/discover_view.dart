@@ -1,7 +1,7 @@
 import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:find_yourself/view/cartView/cart_view.dart';
 import 'package:find_yourself/view/discover/widget/category/list_category.dart';
-import 'package:find_yourself/core/common/common_gridList.dart';
+import 'package:find_yourself/core/common/common_grid_list.dart';
 import 'package:find_yourself/view/favoritesView/favorites_view.dart';
 import 'package:flutter/material.dart';
 
@@ -12,11 +12,11 @@ const DiscoverView({ Key? key }) : super(key: key);
     return Scaffold(
       appBar: AppBar(title: const Text(AppConstants.discoverNavTitle),
       leading: IconButton(
-            icon: Icon(Icons.favorite),
-            color: Colors.red, // Sol tarafa eklenen icon
+            icon: const Icon(Icons.favorite),
+            color: Colors.red,
             onPressed: () {
               Navigator.push(context,
-        MaterialPageRoute(builder: (context)=>  FavoritesView()));
+        MaterialPageRoute(builder: (context)=>  const FavoritesView()));
             },
           ),
           actions: [
@@ -25,7 +25,7 @@ const DiscoverView({ Key? key }) : super(key: key);
               children: [
              IconButton(onPressed: (){
                    Navigator.push(context,
-        MaterialPageRoute(builder: (context)=>  CartView()));
+        MaterialPageRoute(builder: (context)=>  const CartView()));
             }, icon: const Icon(Icons.shopping_basket),
             color: Colors.red,
             ),
@@ -42,7 +42,7 @@ const DiscoverView({ Key? key }) : super(key: key);
       
       ),
       body:   Padding(
-        padding: EdgeInsets.symmetric(horizontal:15),
+        padding: const EdgeInsets.symmetric(horizontal:15),
         child: Column(
           children: [
           const Expanded(

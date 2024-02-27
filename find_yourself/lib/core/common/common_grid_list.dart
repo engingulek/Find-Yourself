@@ -1,4 +1,3 @@
-
 import 'package:find_yourself/core/common/common_product_view.dart';
 import 'package:find_yourself/view/productDetail/product_detail.dart';
 import 'package:flutter/material.dart';
@@ -14,11 +13,12 @@ final defaultDressImage = "https://images.unsplash.com/photo-1574655563118-3e3ea
               childAspectRatio: 2 / 3.5,
             ),
             itemCount: 10,
-            itemBuilder: (context,indeks){
+            itemBuilder: (context,index){
               
               return   GestureDetector(
                 onTap: () {
-                 Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetail()));
+                 Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => const ProductDetail()));
                 },
                 child: CommonProductView(
                   defaultDressImage: defaultDressImage)

@@ -5,6 +5,7 @@ class AppConstants {
   static const detailNavTitle = "Detail";
   static const productsNavTitle = "Products";
   static const myCartNavTitle = "My Cart";
+  static const favoritesNavTitle = "My Cart";
   static const popular = "Popular";
   static const showAll = "Show All";
   static const addCart = "Add Cart";

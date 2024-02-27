@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness:  Brightness.dark
       ),
-      home: const  background()
+      home: const  OnboardingView()
     );
   }
 }

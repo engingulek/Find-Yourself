@@ -17,9 +17,9 @@ mixin MixinProductsView {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const _showBottomSheetTitle(title: AppConstants.sort,),
+              const _ShowBottomSheetTitle(title: AppConstants.sort,),
              
-              _showBottomSheetListView(listType: sortTypeList,),
+              _ShowBottomSheetListView(listType: sortTypeList,),
             ],
           ),
         );
@@ -41,9 +41,9 @@ mixin MixinProductsView {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const _showBottomSheetTitle(title: AppConstants.filter,),
+              const _ShowBottomSheetTitle(title: AppConstants.filter,),
              
-              _checkBoxListView(listType: filterTypeList,),
+              _CheckBoxListView(listType: filterTypeList,),
             ],
           ),
         );
@@ -53,8 +53,8 @@ mixin MixinProductsView {
 }
 
 
-class _showBottomSheetListView extends StatelessWidget {
-  const _showBottomSheetListView({
+class _ShowBottomSheetListView extends StatelessWidget {
+  const _ShowBottomSheetListView({
     required this.listType,
   });
   final List<String> listType;
@@ -80,8 +80,8 @@ class _showBottomSheetListView extends StatelessWidget {
   }
 }
 
-class _checkBoxListView extends StatelessWidget {
-   _checkBoxListView({
+class _CheckBoxListView extends StatelessWidget {
+  const _CheckBoxListView({
     required this.listType,
   });
   
@@ -112,8 +112,8 @@ class _checkBoxListView extends StatelessWidget {
 
 
 
-class _showBottomSheetTitle extends StatelessWidget {
-  const _showBottomSheetTitle({
+class _ShowBottomSheetTitle extends StatelessWidget {
+  const _ShowBottomSheetTitle({
     required this.title,
   });
   final String title;

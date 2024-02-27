@@ -1,6 +1,6 @@
 import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:find_yourself/view/cartView/widget/amount_view.dart';
-import 'package:find_yourself/view/cartView/widget/cart_listView.dart';
+import 'package:find_yourself/view/cartView/widget/cart_list_view.dart';
 import 'package:find_yourself/view/cartView/widget/item_count_view.dart';
 import 'package:flutter/material.dart';
 
