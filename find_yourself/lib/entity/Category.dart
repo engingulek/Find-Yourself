@@ -1,12 +1,4 @@
-import 'dart:convert';
-
-Map<String, Category> categoryFromJson(String str) => 
-Map.from(json.decode(str)).map((k, v) => 
-MapEntry<String, Category>(k as String, Category.fromJson(v)));
-
-String categoryToJson(Map<String, Category> data) => 
-json.encode(Map.from(data).map((k, v) => 
-MapEntry<String, dynamic>(k, v.toJson())));
+// ignore_for_file: file_names
 
 class Category {
     String imageUrl;
@@ -21,9 +13,4 @@ class Category {
         imageUrl: json["imageUrl"] as String,
         name: json["name"] as String,
     );
-
-    Map<String, dynamic> toJson() => {
-        "imageUrl": imageUrl,
-        "name": name,
-    };
 }

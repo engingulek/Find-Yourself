@@ -1,12 +1,19 @@
 
 import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:find_yourself/core/extension/context_extension.dart';
+import 'package:find_yourself/entity/Product.dart';
 import 'package:flutter/material.dart';
 
 class ProductInfo extends StatelessWidget {
   const ProductInfo({
-    super.key,
+    super.key, 
+    required this.productName, 
+    required this.productPrice, 
+    required this.productSize,
   });
+  final String productName;
+  final int productPrice;
+  final List<SizeList>? productSize;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +28,10 @@ class ProductInfo extends StatelessWidget {
       child:   Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-      productName(),
-         productSize(),
+      productNameView(),
+         productSizeView(),
     
-         productPrice(),
+         productPriceView(),
         productAddCartButton()
        
     ],),
@@ -44,13 +51,13 @@ class ProductInfo extends StatelessWidget {
       ));
   }
 
-  Text productPrice() {
-    return const Text("\$120.00",style: TextStyle(
+  Text productPriceView() {
+    return  Text("\$$productPrice",style: const TextStyle(
       fontSize: 30,
       color: Colors.white,decoration: TextDecoration.none,),);
   }
 
-  Row productSize() {
+  Row productSizeView() {
     return const Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -74,8 +81,8 @@ class ProductInfo extends StatelessWidget {
       ],);
   }
 
-  Text productName() {
-    return const Text("White Dress",style: TextStyle(
+  Text productNameView() {
+    return  Text(productName,style: const TextStyle(
       fontSize: 30,
       color: Colors.white,decoration: TextDecoration.none,),);
   }
