@@ -23,8 +23,9 @@ final defaultCategoryImage = "https://images.unsplash.com/photo-1542291026-7eec2
             padding: const EdgeInsets.all(5.0),
             child: GestureDetector(
               onTap: () {
+
                 Navigator.push(context,
-        MaterialPageRoute(builder: (context)=>  ProductsView())
+        MaterialPageRoute(builder: (context)=>  ProductsView(selectedCategory: category,))
         );
               },
               child: CategoryView(category: category,),

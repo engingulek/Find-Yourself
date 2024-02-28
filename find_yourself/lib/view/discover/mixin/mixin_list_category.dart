@@ -13,6 +13,5 @@ mixin MixinListCategory  {
     }else{
       return category;
     }
-
   }
 }
