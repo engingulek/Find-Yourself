@@ -1,14 +1,29 @@
 import 'package:find_yourself/core/constants/app_constants.dart';
+import 'package:find_yourself/cubit/discover_page_cubit.dart';
 import 'package:find_yourself/view/cartView/cart_view.dart';
 import 'package:find_yourself/view/discover/widget/category/list_category.dart';
 import 'package:find_yourself/core/common/common_grid_list.dart';
 import 'package:find_yourself/view/favoritesView/favorites_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DiscoverView extends StatelessWidget {
-const DiscoverView({ Key? key }) : super(key: key);
+
+class DiscoverView extends StatefulWidget  {
+  const DiscoverView({ Key? key }) : super(key: key);
+
   @override
-  Widget build(BuildContext context){
+  _DiscoverViewState createState() => _DiscoverViewState();
+}
+
+class _DiscoverViewState extends State<DiscoverView> {
+  @override
+  void initState() {
+    super.initState();
+     context.read<DiscoverPageCubit>().fetchCategories();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text(AppConstants.discoverNavTitle),
       leading: IconButton(
@@ -74,11 +89,4 @@ const DiscoverView({ Key? key }) : super(key: key);
       ),
       );
   }
-
- 
-
- 
-
- 
 }
-

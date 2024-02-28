@@ -1,12 +1,13 @@
  import 'package:find_yourself/core/extension/context_extension.dart';
+import 'package:find_yourself/entity/Category.dart';
 import 'package:flutter/material.dart';
 
 class CategoryView extends StatelessWidget {
 const CategoryView({ Key? key, 
 required this.category, 
-required this.defaultCategoryImage }) : super(key: key);
-final String category;
-final String  defaultCategoryImage;
+}) : super(key: key);
+final Category category;
+
   @override
   Widget build(BuildContext context){
    return Column(
@@ -14,8 +15,8 @@ final String  defaultCategoryImage;
             children: [
               CircleAvatar(
                 radius: context.categoryImageCircle,
-                backgroundImage: NetworkImage(defaultCategoryImage),),
-            Text("Category $category" ,style: Theme.of(context).textTheme.titleMedium,)
+                backgroundImage: NetworkImage(category.imageUrl),),
+            Text(category.name ,style: Theme.of(context).textTheme.titleMedium,)
           ],);
   }
 }
