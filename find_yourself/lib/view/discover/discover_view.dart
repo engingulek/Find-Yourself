@@ -1,8 +1,9 @@
+// ignore_for_file: depend_on_referenced_packages, library_private_types_in_public_api
+
 import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:find_yourself/cubit/discover_page_cubit.dart';
 import 'package:find_yourself/view/cartView/cart_view.dart';
 import 'package:find_yourself/view/discover/widget/category/list_category.dart';
-import 'package:find_yourself/core/common/common_grid_list.dart';
 import 'package:find_yourself/view/favoritesView/favorites_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -80,7 +81,7 @@ class _DiscoverViewState extends State<DiscoverView> {
           ],)),
           const Expanded(
             flex: 7,
-            child: CommonGridList()
+            child: Text("")
             
             
             )

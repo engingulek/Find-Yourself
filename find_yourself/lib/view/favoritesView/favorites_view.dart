@@ -1,4 +1,3 @@
-import 'package:find_yourself/core/common/common_grid_list.dart';
 import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +10,8 @@ const FavoritesView({ Key? key }) : super(key: key);
       title: const Text(AppConstants.favoritesNavTitle),),
     body: const Padding(
       padding: EdgeInsets.only(top: 20),
-      child: CommonGridList(),
+      child: Text("")//CommonGridList(),
     )
-    
     ,);
   }
 }

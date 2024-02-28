@@ -1,3 +1,5 @@
+ // ignore_for_file: depend_on_referenced_packages
+
  import 'package:find_yourself/cubit/discover_page_cubit.dart';
 import 'package:find_yourself/view/discover/mixin/mixin_list_category.dart';
 import 'package:find_yourself/view/discover/widget/category/category_view.dart';
@@ -18,17 +20,18 @@ final defaultCategoryImage = "https://images.unsplash.com/photo-1542291026-7eec2
         scrollDirection: Axis.horizontal,
           itemCount:categories.values.length,
           itemBuilder: (context,index){
-          var category = getCategory(categories,index);
+          var item = getCategory(categories,index);
           return Padding(
             padding: const EdgeInsets.all(5.0),
             child: GestureDetector(
               onTap: () {
 
                 Navigator.push(context,
-        MaterialPageRoute(builder: (context)=>  ProductsView(selectedCategory: category,))
+        MaterialPageRoute(builder: (context)=>  ProductsView(
+          selectedCategory: item.$1,categoryKey: item.$2))
         );
               },
-              child: CategoryView(category: category,),
+              child: CategoryView(category: item.$1,),
             )
           );
         });

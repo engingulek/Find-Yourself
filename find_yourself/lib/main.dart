@@ -1,4 +1,7 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:find_yourself/cubit/discover_page_cubit.dart';
+import 'package:find_yourself/cubit/products_page_cubit.dart';
 import 'package:find_yourself/view/onboardingView/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +17,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: (context)=> DiscoverPageCubit())
+      BlocProvider(create: (context)=> DiscoverPageCubit()),
+      BlocProvider(create: (context)=> ProductsPageCubit())
     ]
     , child: MaterialApp(
       title: 'Flutter Demo',

@@ -1,8 +1,9 @@
+import 'package:find_yourself/entity/Product.dart';
 import 'package:flutter/material.dart';
 
 class CommonProductView extends StatelessWidget {
-const CommonProductView({ Key? key, required this.defaultDressImage }) : super(key: key);
-final String defaultDressImage;
+const CommonProductView({ Key? key, required this.product }) : super(key: key);
+final Product product;
 
   @override
   Widget build(BuildContext context){
@@ -25,16 +26,16 @@ final String defaultDressImage;
   }
 
   Text productPrice() {
-    return const Text("\$100.00",
-            style: TextStyle(
+    return  Text("\$${product.price}",
+            style: const TextStyle(
               color: Colors.red,
               fontSize: 16,fontWeight: FontWeight.bold),);
   }
 
   Text productName() {
-    return const Text("White Dress",
+    return  Text(product.name ,
               textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),);
+              style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),);
   }
 
   Padding productImage() {
@@ -48,7 +49,7 @@ final String defaultDressImage;
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0), 
                 image: DecorationImage(
-                  image: NetworkImage(defaultDressImage),
+                  image: NetworkImage(product.imageUrl),
                   fit: BoxFit.cover,
                 ),
               ),
