@@ -3,8 +3,8 @@ import 'package:find_yourself/entity/Category.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 
-class DiscoverPageCubit extends Cubit< Map<String, Category>> {
-  DiscoverPageCubit() : super( <String, Category>{});
+class CategoryCubit extends Cubit< Map<String, Category>> {
+  CategoryCubit() : super( <String, Category>{});
 
   Future<void> fetchCategories() async {
     var url = "https://marketdelivery-172e2-default-rtdb.firebaseio.com/categories.json";

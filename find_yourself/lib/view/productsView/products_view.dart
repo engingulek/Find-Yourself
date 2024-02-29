@@ -2,7 +2,7 @@
 
 import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:find_yourself/core/common/common_grid_list.dart';
-import 'package:find_yourself/cubit/products_page_cubit.dart';
+import 'package:find_yourself/cubit/products_cubit.dart';
 import 'package:find_yourself/cubit/returnEntity/product_cubit_entity.dart';
 import 'package:find_yourself/entity/Category.dart';
 import 'package:find_yourself/view/productsView/mixin/mixin_products_view.dart';
@@ -24,7 +24,7 @@ class _ProductsViewState extends State<ProductsView> with MixinProductsView {
   @override
   void initState() {
     super.initState();
-    context.read<ProductsPageCubit>().fetchProductsWithCategory(widget.categoryKey);
+    context.read<ProductsCubit>().fetchProductsWithCategory(widget.categoryKey);
   }
 
   @override
@@ -60,7 +60,7 @@ class _ProductsViewState extends State<ProductsView> with MixinProductsView {
           ),
            Expanded(
             flex: 8,
-            child: BlocBuilder<ProductsPageCubit,ProductEntityReturn>(
+            child: BlocBuilder<ProductsCubit,ProductEntityReturn>(
               builder: (context,entity){
                 if (entity.isLoading) {
                   return const Center(child: CircularProgressIndicator(),);

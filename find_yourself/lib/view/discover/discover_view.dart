@@ -1,7 +1,10 @@
 // ignore_for_file: depend_on_referenced_packages, library_private_types_in_public_api
 
+import 'package:find_yourself/core/common/common_grid_list.dart';
 import 'package:find_yourself/core/constants/app_constants.dart';
-import 'package:find_yourself/cubit/discover_page_cubit.dart';
+import 'package:find_yourself/cubit/category_cubit.dart';
+import 'package:find_yourself/cubit/products_cubit.dart';
+import 'package:find_yourself/cubit/returnEntity/product_cubit_entity.dart';
 import 'package:find_yourself/view/cartView/cart_view.dart';
 import 'package:find_yourself/view/discover/widget/category/list_category.dart';
 import 'package:find_yourself/view/favoritesView/favorites_view.dart';
@@ -20,7 +23,8 @@ class _DiscoverViewState extends State<DiscoverView> {
   @override
   void initState() {
     super.initState();
-     context.read<DiscoverPageCubit>().fetchCategories();
+     context.read<CategoryCubit>().fetchCategories();
+     context.read<ProductsCubit>().fetchPopularProducts();
   }
 
   @override
@@ -80,11 +84,21 @@ class _DiscoverViewState extends State<DiscoverView> {
                 fontSize: 16,
                 color: Colors.red),))
           ],)),
-          const Expanded(
+           Expanded(
             flex: 7,
-            child: Text("")
-            
-            
+            child: BlocBuilder<ProductsCubit,ProductEntityReturn>(
+              builder: (context,entity){
+                if (entity.isLoading) {
+                  return const Center(child: CircularProgressIndicator(),);
+                }else{
+                 if (entity.products.isNotEmpty){
+                  return CommonGridList(products: entity.products);
+                }else{
+                  return  Center(child: Text(AppConstants.noProduct.value),);
+                }
+                }
+              })
+
             )
         
         ],),

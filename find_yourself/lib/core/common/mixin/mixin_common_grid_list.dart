@@ -11,7 +11,9 @@ mixin MixinCommonGridList {
         categoryId: "", 
         gender: "", 
         imageUrl: "", 
-        name: "",price: 0);
+        name: "",
+        salesCount: 0,
+        price: 0);
       return (product,"");
     }else{
       return  (product,key);

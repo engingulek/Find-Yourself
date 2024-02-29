@@ -1,6 +1,6 @@
  // ignore_for_file: depend_on_referenced_packages
+import 'package:find_yourself/cubit/category_cubit.dart';
 
- import 'package:find_yourself/cubit/discover_page_cubit.dart';
 import 'package:find_yourself/view/discover/mixin/mixin_list_category.dart';
 import 'package:find_yourself/view/discover/widget/category/category_view.dart';
 import 'package:find_yourself/view/productsView/products_view.dart';
@@ -10,10 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ListCategory extends StatelessWidget  with MixinListCategory {
 const ListCategory({ Key? key }) : super(key: key);
-final defaultCategoryImage = "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D";
+
   @override
   Widget build(BuildContext context){
-  return  BlocBuilder<DiscoverPageCubit,Map<String,Category>>(
+  return  BlocBuilder<CategoryCubit,Map<String,Category>>(
     builder:(context,categories){
       if (categories.isNotEmpty){
         return ListView.builder(
@@ -45,6 +45,23 @@ final defaultCategoryImage = "https://images.unsplash.com/photo-1542291026-7eec2
   }
 }
 
+
+
+/*
+BlocBuilder<ProductsCubit,ProductEntityReturn>(
+              builder: (context,entity){
+                if (entity.isLoading) {
+                  return const Center(child: CircularProgressIndicator(),);
+                }else{
+                 if (entity.products.isNotEmpty){
+                  return CommonGridList(products: entity.products);
+                }else{
+                  return const Center(child: Text("No Product"),);
+                }
+                }
+  
+              })
+*/
 
 /*
 ListView.builder(

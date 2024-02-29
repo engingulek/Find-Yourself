@@ -6,6 +6,7 @@ class Product {
     String imageUrl;
     String name;
     int price;
+    int salesCount;
     List<SizeList>? sizeList;
 
     Product({
@@ -14,6 +15,7 @@ class Product {
         required this.imageUrl,
         required this.name,
         required this.price,
+        required this.salesCount,
         this.sizeList,
     });
 
@@ -23,6 +25,7 @@ class Product {
         imageUrl: json["imageUrl"],
         name: json["name"],
         price: json["price"],
+        salesCount: json["salesCount"],
         sizeList: json["sizeList"] == null ? [] : List<SizeList>.from(json["sizeList"]!.map((x) => SizeList.fromJson(x))),
     );
 
