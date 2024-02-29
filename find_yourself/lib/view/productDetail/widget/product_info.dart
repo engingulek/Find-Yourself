@@ -1,19 +1,31 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:find_yourself/entity/Product.dart';
+import 'package:find_yourself/view/productDetail/mixin/mixin_product_info.dart';
 import 'package:flutter/material.dart';
 
-class ProductInfo extends StatelessWidget {
-  const ProductInfo({
-    Key? key, 
-    required this.productName, 
-    required this.productPrice, 
-    required this.productSize,
-  }) : super(key: key);
+class ProductInfo extends StatefulWidget {
+   const ProductInfo({ Key? key, 
+  required this.productName, 
+  required this.productPrice, 
+  required this.productSize }) : super(key: key);
 
-  final String productName;
+final String productName;
   final int productPrice;
   final List<SizeList> productSize;
+ 
+  @override
+ _ProductInfoState createState() => _ProductInfoState();
+}
 
+class _ProductInfoState extends State<ProductInfo>  with MixinProductInfo {
+    String _selectedSize  = "";
+  @override
+  void initState() {
+    super.initState();
+    _selectedSize = widget.productSize[0].size;
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,26 +41,23 @@ class ProductInfo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           productNameView(),
-          if (productSize.isNotEmpty)
+          if (widget.productSize.isNotEmpty)
             SizedBox(
               height: 60, 
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: productSize.length,
+                itemCount: widget.productSize.length,
                 itemBuilder: (context, index) {
-                  return Padding(
+                  return 
+                Padding(
                     padding: const EdgeInsets.only(left: 30),
-                    child: CircleAvatar( 
-                      radius: 30,
-                      backgroundColor: productSize[index].piece == 0 
-                      ? Colors.grey :
-                       Colors.white,
-                      child: Text(
-                        productSize[index].size,
-                        style: const TextStyle(
-                          color: Colors.black,fontWeight: FontWeight.bold
-                        ),
-                      ),
+                    child: GestureDetector(
+                      onTap: widget.productSize[index].piece == 0 ? null :() {
+                        setState(() {
+                          _selectedSize =  widget.productSize[index].size;
+                        });
+                      },
+                      child: productSizeView(index),
                     ),
                   );
                 },
@@ -59,6 +68,23 @@ class ProductInfo extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  CircleAvatar productSizeView(int index) {
+    return CircleAvatar( 
+                      radius: 30,
+                      backgroundColor: sizeColors(
+                        widget.productSize, index, _selectedSize),
+                      child: Text(
+                        widget.productSize[index].size,
+                        style:  TextStyle(color:
+                        _selectedSize == widget.productSize[index].size 
+                        ? Colors.white :
+                         Colors.black,
+                         fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    );
   }
 
   ElevatedButton productAddCartButton() {
@@ -80,7 +106,7 @@ class ProductInfo extends StatelessWidget {
 
   Text productPriceView() {
     return Text(
-      "\$$productPrice",
+      "\$${widget.productPrice}",
       style: const TextStyle(
         fontSize: 30,
         color: Colors.white,
@@ -91,7 +117,7 @@ class ProductInfo extends StatelessWidget {
 
   Text productNameView() {
     return Text(
-      productName,
+      widget.productName,
       style: const TextStyle(
         fontSize: 30,
         color: Colors.white,
@@ -100,4 +126,3 @@ class ProductInfo extends StatelessWidget {
     );
   }
 }
-
