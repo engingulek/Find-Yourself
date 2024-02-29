@@ -18,22 +18,5 @@ class ProductsCubit extends Cubit<ProductEntityReturn>{
       });
       emit(ProductEntityReturn(products, false));
   }
-
-  Future<void> fetchPopularProducts() async {
-      emit(ProductEntityReturn({}, true));
-    var url = "https://marketdelivery-172e2-default-rtdb.firebaseio.com/products.json";
-        Response response = await Dio().get(url);
-        Map<String, dynamic> jsonResponse = response.data as Map<String, dynamic>;
-        Map<String, Product> products = jsonResponse.map((key, value) {
-        return MapEntry<String, Product>(key, Product.fromJson(value));
-      });
-      
-        var sortedProductEntries = products.entries.toList()
-    ..sort((a, b) => b.value.salesCount.compareTo(a.value.salesCount));
-
-
-  Map<String, Product> popularProducts = Map.fromEntries(sortedProductEntries);
-
-      emit(ProductEntityReturn(popularProducts, false));
-  }
+  
 }

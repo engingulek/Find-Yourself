@@ -1,6 +1,6 @@
 import 'package:find_yourself/cubit/category_cubit.dart';
+import 'package:find_yourself/cubit/popular_products_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:find_yourself/cubit/products_cubit.dart';
 import 'package:flutter/material.dart';
 
 mixin MixinDiscoverView {
@@ -8,6 +8,6 @@ mixin MixinDiscoverView {
     context.read<CategoryCubit>().fetchCategories();
   }
   void fetchPopularProducts(BuildContext context) {
-    context.read<ProductsCubit>().fetchPopularProducts();
+    context.read<PopularProductsCubit>().fetchPopularProducts();
   }
 }

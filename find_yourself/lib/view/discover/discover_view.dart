@@ -1,8 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages, library_private_types_in_public_api
-
 import 'package:find_yourself/core/common/common_grid_list.dart';
 import 'package:find_yourself/core/constants/app_constants.dart';
-import 'package:find_yourself/cubit/products_cubit.dart';
+import 'package:find_yourself/cubit/popular_products_cubit.dart';
 import 'package:find_yourself/cubit/returnEntity/product_cubit_entity.dart';
 import 'package:find_yourself/view/cartView/cart_view.dart';
 import 'package:find_yourself/view/discover/mixin/mixin_discover_view.dart';
@@ -26,7 +25,6 @@ class _DiscoverViewState extends State<DiscoverView> with MixinDiscoverView {
      fetchCategories(context);
      fetchPopularProducts(context);
   }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +74,7 @@ class _DiscoverViewState extends State<DiscoverView> with MixinDiscoverView {
             )),
            Expanded(
             flex: 7,
-            child: BlocBuilder<ProductsCubit,ProductEntityReturn>(
+            child: BlocBuilder<PopularProductsCubit,ProductEntityReturn>(
               builder: (context,entity){
                 if (entity.isLoading) {
                   return const Center(child: CircularProgressIndicator(),);
