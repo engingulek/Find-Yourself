@@ -56,10 +56,7 @@ class _DiscoverViewState extends State<DiscoverView> {
                 fontWeight: FontWeight.bold),),
             )
             ]
-          
           )],
-      
-      
       ),
       body:    Padding(
         padding: const EdgeInsets.symmetric(horizontal:15),
@@ -98,9 +95,7 @@ class _DiscoverViewState extends State<DiscoverView> {
                 }
                 }
               })
-
             )
-        
         ],),
       ),
       );
