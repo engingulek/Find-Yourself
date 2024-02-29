@@ -13,6 +13,7 @@ mixin MixinCommonGridList {
         imageUrl: "", 
         name: "",
         salesCount: 0,
+        sizeList: [],
         price: 0);
       return (product,"");
     }else{

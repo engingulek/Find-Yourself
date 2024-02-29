@@ -1,92 +1,103 @@
-
 import 'package:find_yourself/core/constants/app_constants.dart';
-import 'package:find_yourself/core/extension/context_extension.dart';
 import 'package:find_yourself/entity/Product.dart';
 import 'package:flutter/material.dart';
 
 class ProductInfo extends StatelessWidget {
   const ProductInfo({
-    super.key, 
+    Key? key, 
     required this.productName, 
     required this.productPrice, 
     required this.productSize,
-  });
+  }) : super(key: key);
+
   final String productName;
   final int productPrice;
-  final List<SizeList>? productSize;
+  final List<SizeList> productSize;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: context.width,
-    decoration: const BoxDecoration(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(50),
-        topRight: Radius.circular(50)
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(50),
+          topRight: Radius.circular(50),
         ),
-      color: Colors.black87,),
-      child:   Column(
+        color: Colors.black87,
+      ),
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-      productNameView(),
-         productSizeView(),
-    
-         productPriceView(),
-        productAddCartButton()
-       
-    ],),
+          productNameView(),
+          if (productSize.isNotEmpty)
+            SizedBox(
+              height: 60, 
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: productSize.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: CircleAvatar( 
+                      radius: 30,
+                      backgroundColor: productSize[index].piece == 0 
+                      ? Colors.grey :
+                       Colors.white,
+                      child: Text(
+                        productSize[index].size,
+                        style: const TextStyle(
+                          color: Colors.black,fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          productPriceView(),
+          productAddCartButton(),
+        ],
+      ),
     );
   }
 
   ElevatedButton productAddCartButton() {
-    return ElevatedButton(onPressed: (){},  child:  Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 50),
+    return ElevatedButton(
+      onPressed: () {},
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
         child: Text(
           AppConstants.addCart.value,
           style: const TextStyle(
-            
             color: Colors.white,
-            fontWeight: FontWeight.bold,fontSize: 20)
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
           ),
-      ));
+        ),
+      ),
+    );
   }
 
   Text productPriceView() {
-    return  Text("\$$productPrice",style: const TextStyle(
-      fontSize: 30,
-      color: Colors.white,decoration: TextDecoration.none,),);
-  }
-
-  Row productSizeView() {
-    return const Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-        CircleAvatar( 
-          radius: 30,
-          backgroundColor: Colors.white,
-          child: Text("M",style: TextStyle(color: Colors.black)),),
-         CircleAvatar(
-          radius: 30,
-           backgroundColor: Colors.red,
-          child: Text("M",style: TextStyle(color: Colors.white),),),
-          CircleAvatar(
-            radius: 30,
-             backgroundColor: Colors.white,
-            child: Text("M",style: TextStyle(color: Colors.black)),),
-            CircleAvatar(
-            radius: 30,
-             backgroundColor: Colors.white,
-            child: Text("M",style: TextStyle(color: Colors.black)),),
-            
-      ],);
+    return Text(
+      "\$$productPrice",
+      style: const TextStyle(
+        fontSize: 30,
+        color: Colors.white,
+        decoration: TextDecoration.none,
+      ),
+    );
   }
 
   Text productNameView() {
-    return  Text(productName,style: const TextStyle(
-      fontSize: 30,
-      color: Colors.white,decoration: TextDecoration.none,),);
+    return Text(
+      productName,
+      style: const TextStyle(
+        fontSize: 30,
+        color: Colors.white,
+        decoration: TextDecoration.none,
+      ),
+    );
   }
 }
-
-
 

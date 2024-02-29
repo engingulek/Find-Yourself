@@ -7,7 +7,7 @@ class Product {
     String name;
     int price;
     int salesCount;
-    List<SizeList>? sizeList;
+    List<SizeList> sizeList;
 
     Product({
         required this.categoryId,
@@ -16,7 +16,7 @@ class Product {
         required this.name,
         required this.price,
         required this.salesCount,
-        this.sizeList,
+        required this.sizeList,
     });
 
     factory Product.fromJson(Map<String, dynamic> json) => Product(
