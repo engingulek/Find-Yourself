@@ -6,7 +6,6 @@ import 'package:find_yourself/cubit/returnEntity/product_cubit_entity.dart';
 import 'package:find_yourself/view/cartView/cart_view.dart';
 import 'package:find_yourself/view/discover/mixin/mixin_discover_view.dart';
 import 'package:find_yourself/view/discover/widget/category/list_category.dart';
-import 'package:find_yourself/view/favoritesView/favorites_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,14 +28,6 @@ class _DiscoverViewState extends State<DiscoverView> with MixinDiscoverView {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title:  Text(AppConstants.discoverNavTitle.value),
-      leading: IconButton(
-            icon: const Icon(Icons.favorite),
-            color: Colors.red,
-            onPressed: () {
-              Navigator.push(context,
-        MaterialPageRoute(builder: (context)=>  const FavoritesView()));
-            },
-          ),
           actions: [
             Stack(
               alignment: Alignment.topRight,

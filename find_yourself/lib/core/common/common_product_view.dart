@@ -41,10 +41,7 @@ final Product product;
   Padding productImage() {
     return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Stack(
-              alignment: Alignment.topRight,
-              children: [
-              Container(
+            child: Container(
               
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0), 
@@ -54,14 +51,6 @@ final Product product;
                 ),
               ),
             ),
-
-            IconButton(onPressed: (){
-
-            }, icon: const Icon(Icons.favorite_border),
-            color: Colors.red,
-            )
-
-            ]),
           );
   }
 }

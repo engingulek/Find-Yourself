@@ -5,7 +5,6 @@ mixin MixinProductsView {
   final List<String> sortTypeList = [
     "Lowest Price",
     "Highest Price",
-    "Most Favorites"
   ];
 
   void showBottomSheetForSort(BuildContext context) {
