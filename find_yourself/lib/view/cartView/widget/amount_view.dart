@@ -21,19 +21,19 @@ class AmountView extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-          primaryText(AppConstants.subtotal),
+          primaryText(AppConstants.subtotal.value),
          primaryText("\$120"),
         ],),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            primaryText(AppConstants.shipping),
+            primaryText(AppConstants.shipping.value),
             primaryText("\$5"),
         ],),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             primaryText(AppConstants.tax),
+             primaryText(AppConstants.tax.value),
              primaryText("\$5"),
         ],),
         const Divider(
@@ -43,7 +43,7 @@ class AmountView extends StatelessWidget {
      Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             primaryText(AppConstants.total),
+             primaryText(AppConstants.total.value),
           totalText(130)
         ],),
       ],),

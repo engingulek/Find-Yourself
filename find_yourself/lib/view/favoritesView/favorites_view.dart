@@ -7,7 +7,7 @@ const FavoritesView({ Key? key }) : super(key: key);
   @override
   Widget build(BuildContext context){
     return Scaffold(appBar: AppBar(
-      title: const Text(AppConstants.favoritesNavTitle),),
+      title:  Text(AppConstants.favoritesNavTitle.value),),
     body: const Padding(
       padding: EdgeInsets.only(top: 20),
       child: Text("")//CommonGridList(),

@@ -17,7 +17,7 @@ mixin MixinProductsView {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const _ShowBottomSheetTitle(title: AppConstants.sort,),
+               _ShowBottomSheetTitle(title: AppConstants.sort.value,),
              
               _ShowBottomSheetListView(listType: sortTypeList,),
             ],
@@ -36,12 +36,12 @@ mixin MixinProductsView {
   showModalBottomSheet(
     context: context,
     builder: (context) {
-      return  Padding(
+      return   Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const _ShowBottomSheetTitle(title: AppConstants.filter,),
+              _ShowBottomSheetTitle(title: AppConstants.filter.value,),
              
               _CheckBoxListView(listType: filterTypeList,),
             ],

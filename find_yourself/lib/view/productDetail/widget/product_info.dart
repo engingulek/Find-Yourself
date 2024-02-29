@@ -39,11 +39,11 @@ class ProductInfo extends StatelessWidget {
   }
 
   ElevatedButton productAddCartButton() {
-    return ElevatedButton(onPressed: (){},  child: const Padding(
-        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 50),
+    return ElevatedButton(onPressed: (){},  child:  Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 50),
         child: Text(
-          AppConstants.addCart,
-          style: TextStyle(
+          AppConstants.addCart.value,
+          style: const TextStyle(
             
             color: Colors.white,
             fontWeight: FontWeight.bold,fontSize: 20)

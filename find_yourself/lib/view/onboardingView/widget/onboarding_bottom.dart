@@ -10,15 +10,15 @@ class OnboardingBottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Padding(
-      padding: EdgeInsets.symmetric(vertical: 50,horizontal: 20),
+    return   Padding(
+      padding: const EdgeInsets.symmetric(vertical: 50,horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
          OnboardingTitle(
-            onboardingTitle: AppConstants.onboardingTitle
+            onboardingTitle: AppConstants.onboardingTitle.value
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(vertical: 20),
               child: Text(
                 "Lorem Ipsum is simply dummy text of the printing and typesetting ",
@@ -28,7 +28,7 @@ class OnboardingBottom extends StatelessWidget {
                 ),
             ),
             FindYourSelfButton(
-            title: AppConstants.findYourselfButton)
+            title: AppConstants.findYourselfButton.value)
       ],),
     );
   }

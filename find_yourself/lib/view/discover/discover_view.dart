@@ -26,7 +26,7 @@ class _DiscoverViewState extends State<DiscoverView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text(AppConstants.discoverNavTitle),
+      appBar: AppBar(title:  Text(AppConstants.discoverNavTitle.value),
       leading: IconButton(
             icon: const Icon(Icons.favorite),
             color: Colors.red,
@@ -57,7 +57,7 @@ class _DiscoverViewState extends State<DiscoverView> {
       
       
       ),
-      body:   Padding(
+      body:    Padding(
         padding: const EdgeInsets.symmetric(horizontal:15),
         child: Column(
           children: [
@@ -70,12 +70,13 @@ class _DiscoverViewState extends State<DiscoverView> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-              const Text(AppConstants.popular,style: TextStyle(
+              Text(AppConstants.popular.value,style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: Colors.white)),
               TextButton(onPressed: (){},
-               child: const Text(AppConstants.showAll,style: TextStyle(
+               child: Text(AppConstants.showAll.value,
+               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.red),))
           ],)),

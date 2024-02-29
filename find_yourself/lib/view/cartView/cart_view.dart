@@ -10,7 +10,7 @@ const CartView({ Key? key }) : super(key: key);
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text(AppConstants.myCartNavTitle),),
+      appBar: AppBar(title:  Text(AppConstants.myCartNavTitle.value),),
       
       body:  const Column(children: [
          Expanded(flex: 1,child: ItemCount(itemCount: 1)),
