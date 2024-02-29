@@ -68,19 +68,12 @@ class _DiscoverViewState extends State<DiscoverView> {
           ),
           Expanded(
             flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-              Text(AppConstants.popular.value,style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.white)),
-              TextButton(onPressed: (){},
-               child: Text(AppConstants.showAll.value,
-               style: const TextStyle(
-                fontSize: 16,
-                color: Colors.red),))
-          ],)),
+            child:   Center(
+              child: Text(AppConstants.popular.value,style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
+            )),
            Expanded(
             flex: 7,
             child: BlocBuilder<ProductsCubit,ProductEntityReturn>(
