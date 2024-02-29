@@ -1,5 +1,6 @@
 import 'package:find_yourself/entity/Category.dart';
 
+
 mixin MixinListCategory  {
 
 
@@ -14,4 +15,5 @@ mixin MixinListCategory  {
       return  (category,key);
     }
   }
+
 }
