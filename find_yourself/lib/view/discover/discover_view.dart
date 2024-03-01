@@ -1,7 +1,9 @@
 // ignore_for_file: depend_on_referenced_packages, library_private_types_in_public_api
 import 'package:find_yourself/core/common/common_grid_list.dart';
 import 'package:find_yourself/core/constants/app_constants.dart';
+import 'package:find_yourself/cubit/cart_cubit.dart';
 import 'package:find_yourself/cubit/popular_products_cubit.dart';
+import 'package:find_yourself/cubit/returnEntity/cart_product_cubit_entity.dart';
 import 'package:find_yourself/cubit/returnEntity/product_cubit_entity.dart';
 import 'package:find_yourself/view/cartView/cart_view.dart';
 import 'package:find_yourself/view/discover/mixin/mixin_discover_view.dart';
@@ -23,6 +25,7 @@ class _DiscoverViewState extends State<DiscoverView> with MixinDiscoverView {
     super.initState();
      fetchCategories(context);
      fetchPopularProducts(context);
+     fetchCartProducts(context);
   }
   @override
   Widget build(BuildContext context) {
@@ -38,12 +41,17 @@ class _DiscoverViewState extends State<DiscoverView> with MixinDiscoverView {
             }, icon: const Icon(Icons.shopping_basket),
             color: Colors.red,
             ),
-            const Padding(
-              padding: EdgeInsets.only(right: 10),
-              child: Text("1",style: TextStyle(
+             BlocBuilder<CartProductCubit,CartProductCubitEntity>(
+              builder: (context,entity){
+                return  Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Text("${entity.cartProducts.length}",style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold),),
-            )
+            );
+              },
+             )
+           /* */
             ]
           )],
       ),
