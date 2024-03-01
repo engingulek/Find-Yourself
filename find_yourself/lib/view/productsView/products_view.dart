@@ -5,8 +5,6 @@ import 'package:find_yourself/core/common/common_grid_list.dart';
 import 'package:find_yourself/cubit/products_cubit.dart';
 import 'package:find_yourself/cubit/returnEntity/product_cubit_entity.dart';
 import 'package:find_yourself/entity/Category.dart';
-import 'package:find_yourself/view/productsView/mixin/mixin_products_view.dart';
-import 'package:find_yourself/view/productsView/widget/products_common_button.dart';
 import 'package:find_yourself/view/productsView/widget/selected_category_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +18,7 @@ class ProductsView extends StatefulWidget {
   _ProductsViewState createState() => _ProductsViewState();
 }
 
-class _ProductsViewState extends State<ProductsView> with MixinProductsView {
+class _ProductsViewState extends State<ProductsView> {
   @override
   void initState() {
     super.initState();
@@ -42,24 +40,9 @@ class _ProductsViewState extends State<ProductsView> with MixinProductsView {
               ],
             ),
           ),
-          Expanded(
-            flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ProductsCommonButton(
-                  title: AppConstants.sort.value,
-                  onPressed: () => showBottomSheetForSort(context)
-                ),
-                ProductsCommonButton(
-                  title: AppConstants.filter.value,
-                  onPressed: () => showBottomSheetForFilter(context),
-                ),
-              ],
-            ),
-          ),
+          
            Expanded(
-            flex: 8,
+            flex: 9,
             child: BlocBuilder<ProductsCubit,ProductEntityReturn>(
               builder: (context,entity){
                 if (entity.isLoading) {
