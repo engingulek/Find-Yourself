@@ -14,8 +14,12 @@ mixin MixinCartView {
     double tax = 0;
     double total = 0;
     cartProducts.forEach((key, value) {
-      int price =  value.price * value.piece;
-      subtotal += price;
+     // int price =  value.price * value.sizes.length;
+     value.sizes.forEach((element) {
+      int price =   value.price * element.piece;
+       subtotal += price;
+     });
+    
     });
 
     if (subtotal <= 120.0) {
@@ -23,10 +27,19 @@ mixin MixinCartView {
       subtotal + shipping;
     }
 
-    tax = subtotal * 0.10;
+    tax = subtotal * 0.04;
     total = subtotal + tax;
 
-    
     return (subtotal,shipping,tax,total);
+  }
+
+  int pieceCount(Iterable<CartProduct> cartProduct) {
+    int totalPiece = 0;
+    cartProduct.forEach((element) {
+      element.sizes.forEach((element) {
+        totalPiece += element.piece;
+      });
+    });
+    return totalPiece;
   }
 }

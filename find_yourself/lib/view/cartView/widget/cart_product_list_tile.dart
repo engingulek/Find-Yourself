@@ -1,7 +1,8 @@
 import 'package:find_yourself/entity/CartProduct.dart';
+import 'package:find_yourself/view/cartView/mixin/mixin_cart_product_tile.dart';
 import 'package:flutter/material.dart';
 
-class CartProductListTile extends StatelessWidget {
+class CartProductListTile extends StatelessWidget with MixinCartProductTile {
 const CartProductListTile({ Key? key, required this.cartProduct }) : super(key: key);
 final CartProduct cartProduct;
   @override
@@ -10,27 +11,46 @@ final CartProduct cartProduct;
       children: [
       Row(children: [
        productImage(),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: productNameAndSize(),
-        ),
-      ]),
-       productPriceAndButtons()
-    ],));
-  }
-  Column productNameAndSize() {
-    return  Column(children: [
-        Text(cartProduct.productName,style: const TextStyle(
+      Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:  Column(children: [
+            Text(cartProduct.productName,style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
           color: Colors.black),),
-        Text("Size:${cartProduct.size}",style: const TextStyle(
-          color: Colors.grey,
-           fontSize: 15,
-          fontWeight: FontWeight.normal
-          ))
-      ],);
+          Column(children: sizesList().toList(),)
+          
+    
+          
+      ],)
+          )
+       
+      ]),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [ 
+         Text("${pieceCount(cartProduct)} Piece:",style: const TextStyle(
+        color: Colors.black,
+        fontSize: 18,
+        fontWeight: FontWeight.bold)),
+        Text("\$${cartProduct.price}",style: const TextStyle(
+        color: Colors.black,
+        fontSize: 18,
+        fontWeight: FontWeight.bold),)
+        ],),
+     
+    ],));
   }
+
+  Iterable<Text> sizesList() {
+    return  cartProduct.sizes.map((element) {
+      return Text("${element.size} : ${element.piece}",style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: Colors.black));
+    });
+  }
+  
 
   Container productImage() {
     return Container(
@@ -45,27 +65,5 @@ final CartProduct cartProduct;
        ),
      );
   }
-  Row productPriceAndButtons(){
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-      Row(children: [
-        IconButton(onPressed: (){
-    
-        }, icon: const Icon(Icons.remove)),
-         Text("${cartProduct.piece}",style: const TextStyle(color: Colors.black),),
-        IconButton(
-          
-          color: Colors.black,
-          onPressed: (){
-    
-        }, icon: const Icon(
-          Icons.add))
-      ],),
-       Text("\$${cartProduct.price}",style: const TextStyle(
-        color: Colors.black,
-        fontSize: 18,
-        fontWeight: FontWeight.bold),)
-    ],);
-  }
+  
 }

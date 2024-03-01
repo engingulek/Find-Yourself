@@ -43,9 +43,10 @@ class _DiscoverViewState extends State<DiscoverView> with MixinDiscoverView {
             ),
              BlocBuilder<CartProductCubit,CartProductCubitEntity>(
               builder: (context,entity){
-                return  Padding(
+                return   Padding(
               padding: const EdgeInsets.only(right: 10),
-              child: Text("${entity.cartProducts.length}",style: const TextStyle(
+              child: Text(pieceCount(entity.cartProducts.values),
+              style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold),),
             );

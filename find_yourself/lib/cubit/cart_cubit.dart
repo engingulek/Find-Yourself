@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 class CartProductCubit extends Cubit<CartProductCubitEntity> {
   CartProductCubit() : super(CartProductCubitEntity({},true));
+   Map<String,CartProduct> _cartProducts = {};
 
   Future<void> fetchCartProducs() async {
     emit(CartProductCubitEntity({},true));
@@ -13,6 +14,28 @@ class CartProductCubit extends Cubit<CartProductCubitEntity> {
       Map<String, CartProduct> cartProducts = jsonResponse.map((key, value) {
         return MapEntry<String, CartProduct>(key, CartProduct.fromJson(value));
       });
+      _cartProducts = cartProducts;
       emit(CartProductCubitEntity(cartProducts,false));
+  }
+
+  Future<void> productToCartProduct(String productName, 
+      int productPrice, 
+      String productSize, 
+      String productKey, 
+      String productUrl) async{
+      
+   
+    /*_cartProducts.values.forEach((element) {
+      if(element.productId == productKey){
+        if (element.size == productSize) {
+          int newPiece = element.piece + 1;
+
+        }else{
+          print("size farklı eklenecek");
+        }
+      }else{
+        print("ilk defa eklenecek");
+      }
+    });*/
   }
 }

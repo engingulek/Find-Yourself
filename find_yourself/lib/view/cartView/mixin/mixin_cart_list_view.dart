@@ -7,11 +7,11 @@ mixin MixinCartListView {
     var cartProduct =  cartProducts[key];
     if (cartProduct == null) {
       var cartProduct = CartProduct(
-        piece: 0, 
         price: 0, 
+        productId: "", 
         productName: "", 
         productUrl: "", 
-        size: "");
+        sizes: []);
       return (cartProduct,"");
     }else{
       return  (cartProduct,key);

@@ -33,7 +33,7 @@ class _CartViewState extends State<CartView> with MixinCartView {
             return const Center(child: CircularProgressIndicator(),);
           }else{
             return  Column(children: [
-         Expanded(flex: 1,child: ItemCount(itemCount: entity.cartProducts.length)),
+         Expanded(flex: 1,child: ItemCount(itemCount: pieceCount(entity.cartProducts.values))),
          Expanded(flex: 6,child: CartListView(cartProducts: entity.cartProducts)),
          Expanded(flex: 3,child: AmountView(values: amountCalculator(entity.cartProducts),))
       ],);
