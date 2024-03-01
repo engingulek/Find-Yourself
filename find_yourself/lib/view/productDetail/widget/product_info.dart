@@ -9,11 +9,13 @@ class ProductInfo extends StatefulWidget {
    const ProductInfo({ Key? key, 
   required this.productName, 
   required this.productPrice, 
-  required this.productSize }) : super(key: key);
+  required this.productSize, required this.productKey, required this.productUrl }) : super(key: key);
 
 final String productName;
   final int productPrice;
   final List<SizeList> productSize;
+  final String productKey;
+  final String productUrl;
  
   @override
  _ProductInfoState createState() => _ProductInfoState();
@@ -89,7 +91,15 @@ class _ProductInfoState extends State<ProductInfo>  with MixinProductInfo {
 
   ElevatedButton productAddCartButton() {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        addProductToCart(
+          context,
+          widget.productName,
+          widget.productPrice,
+          _selectedSize,
+          widget.productKey,
+          widget.productUrl);
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
         child: Text(

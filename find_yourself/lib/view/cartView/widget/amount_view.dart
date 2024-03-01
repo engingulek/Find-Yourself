@@ -2,9 +2,11 @@ import 'package:find_yourself/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
 class AmountView extends StatelessWidget {
-  const AmountView({
-    super.key,
+   const AmountView({
+    super.key, required this.values,
   });
+
+  final (double,double,double,double) values;
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +24,19 @@ class AmountView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
           primaryText(AppConstants.subtotal.value),
-         primaryText("\$120"),
+         primaryText("\$${values.$1}"),
         ],),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             primaryText(AppConstants.shipping.value),
-            primaryText("\$5"),
+            primaryText("\$${values.$2}"),
         ],),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
              primaryText(AppConstants.tax.value),
-             primaryText("\$5"),
+             primaryText("\$${values.$3}"),
         ],),
         const Divider(
       color: Colors.grey,
@@ -44,7 +46,7 @@ class AmountView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
              primaryText(AppConstants.total.value),
-          totalText(130)
+          totalText(values.$4)
         ],),
       ],),
     )

@@ -22,7 +22,11 @@ final String productKey;
      ),
     const Expanded(flex: 4, child:SizedBox() ),
     Expanded(flex: 4,child: ProductInfo(
-      productName: product.name, productPrice: product.price, productSize: product.sizeList,)
+      productName:  product.name, 
+      productPrice: product.price, 
+      productSize: product.sizeList, 
+      productKey: productKey, 
+      productUrl: product.imageUrl,)
      ),
   ],)
 );  
