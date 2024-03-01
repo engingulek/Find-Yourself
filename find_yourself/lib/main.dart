@@ -1,5 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'package:find_yourself/cubit/cart_cubit.dart';
 import 'package:find_yourself/cubit/category_cubit.dart';
 import 'package:find_yourself/cubit/popular_products_cubit.dart';
 import 'package:find_yourself/cubit/products_cubit.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(providers: [
       BlocProvider(create: (context)=> CategoryCubit()),
       BlocProvider(create: (context)=> ProductsCubit()),
-      BlocProvider(create: (context)=> PopularProductsCubit())
+      BlocProvider(create: (context)=> PopularProductsCubit()),
+      BlocProvider(create: (context)=> CartProductCubit())
     ]
     , child: MaterialApp(
       title: 'Flutter Demo',
